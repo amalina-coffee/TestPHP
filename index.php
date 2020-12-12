@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<link rel="stylesheet" href="styles/styles.css">
+	
+</head>
+<body>
+
 <h1><?php echo 'Hello World';?></h1>
 
 
@@ -26,10 +35,15 @@ session_start();
     
     ?>
 
+<p>You are visitor #: <?php print $visits; ?></p>
+
+
+</body>
+</html>
+
 <?php
 $conn->close(); 
 ?>
 
 
-<p>You are visitor #: <?php print $visits; ?></p>
 
