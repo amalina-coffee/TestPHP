@@ -9,6 +9,11 @@
 
 <h3><?php echo 'Hello World';?></h3>
 
+<form method='POST'>
+	What is your name? <input type="text" id="name" name="name">
+	<input type="submit" value="submit"/>
+</form>
+
 
 <?php
 session_start();
@@ -31,11 +36,22 @@ session_start();
 	} else {
         echo "no results";
 	}
+	
+	$name = $_POST['name'];
+	if(isset($name)) {
+		 $query = 'INSERT INTO `sampledb`.`User` (`name`) VALUES ("'.$name.'");';
+
+		if ($conn->query($query) === TRUE) {
+			echo "<br>Hello, " . $name . ". You are visitor #" . $visits; 
+		} else {
+			echo "Error: <br>" . $conn->error;
+		}
+	}
 
     
     ?>
 
-<p>You are visitor #: <?php print $visits; ?></p>
+
 
 
 </body>
